@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="God of War III PC Launcher - Windows, Linux ve Steam Deck için açık kaynaklı başlatıcı. Otomatik donanım optimizasyonu ve yama desteği.">
+    <meta name="author" content="ScreamAngel">
+    <meta name="theme-color" content="#d32626">
+
+    <title>God Of War III PC Launcher | ScreamAngel</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="gow3.png">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="gow3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <!-- Top Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="brand-logo" title="God of War III PC Launcher">
+                    <img src="gow3.png" alt="God of War III Logo" class="logo-img">
+                    <span class="brand-text">GOW III <span>LAUNCHER</span></span>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button id="menuToggle" class="menu-toggle" aria-label="Menüyü Aç/Kapat">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+                <!-- Navigation Links & Audio Player -->
+                <div class="nav-container" id="navMenu">
+                    <ul class="nav-links">
+                        <li><a href="#hero">Ana Sayfa</a></li>
+                        <li><a href="#ozellikler">Özellikler</a></li>
+                        <li><a href="#vitrin">Önizleme</a></li>
+                        <li><a href="#kurulum">Kurulum</a></li>
+                        <li><a href="#surum-notlari">Sürüm Notları</a></li>
+                        <li class="dropdown">
+                            <button class="dropdown-btn" type="button">
+                                Diğer Çalışmalarım <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="https://github.com/ScreamAngel/Distro-Wars" target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-solid fa-gamepad"></i> Distro Wars
+                                </a>
+                                <a href="https://github.com/ScreamAngel/WPCE" target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-solid fa-code"></i> WPCE
+                                </a>
+                                <a href="https://github.com/ScreamAngel" target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-brands fa-github"></i> GitHub Profilim
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <!-- Spartan Mini Audio Player -->
+                    <div class="spartan-player">
+                        <audio id="bgAudio" preload="none" src="rage of sparta.mp3"></audio>
+                        <button id="audioPlayBtn" class="player-btn" type="button" title="Müziği Çal / Durdur">
+                            <i class="fa-solid fa-play"></i>
+                        </button>
+                        <div class="player-info" id="audioTrackBtn" title="Diğer parçaya geçmek için tıklayın">
+                            <div class="visualizer" id="audioVisualizer">
+                                <span></span><span></span><span></span><span></span>
+                            </div>
+                            <span id="currentTrackName" class="track-name">Rage of Sparta</span>
+                            <i class="fa-solid fa-forward-step track-next-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="container">
+                <div class="hero-badge">
+                    <i class="fa-solid fa-fire"></i> Açık Kaynaklı PC Başlatıcı
+                </div>
+
+                <div class="hero-logo-wrapper">
+                    <img src="gow3-remastered.png" alt="God of War III Remastered" class="hero-logo">
+                </div>
+
+                <h1>God Of War III PC Launcher</h1>
+                <p class="hero-subtitle">
+                    Windows, Linux ve Steam Deck üzerinde God of War III Remastered deneyimini kusursuzlaştırmak için tasarlanmış; 
+                    otomatik donanım optimizasyonu, akıllı yama yönetimi ve gelişmiş kontrolcü desteğine sahip modern başlatıcı.
+                </p>
+
+                <!-- Status & Compatibility Badges -->
+                <div class="badges-row">
+                    <span class="badge badge-version" id="versionBadge">
+                        <i class="fa-solid fa-code-branch"></i> v1.3 Yayında
+                    </span>
+                    <span class="badge">
+                        <i class="fa-brands fa-windows"></i> Windows 01.02
+                    </span>
+                    <span class="badge">
+                        <i class="fa-brands fa-linux"></i> Linux 01.00 &amp; 01.02
+                    </span>
+                    <span class="badge">
+                        <i class="fa-solid fa-gamepad"></i> Steam Deck Hazır
+                    </span>
+                    <span class="badge">
+                        <i class="fa-solid fa-bolt"></i> %100 Ücretsiz &amp; Açık Kaynak
+                    </span>
+                </div>
+
+                <!-- Call to Actions -->
+                <div class="hero-cta">
+                    <a href="https://github.com/ScreamAngel/gow3_launcher/releases/latest/download/gow3-windows-linux.zip"
+                       id="downloadBtn" class="btn btn-primary" title="Son sürümü hemen indirin">
+                        <i class="fa-solid fa-download"></i>
+                        <span class="btn-text">Hemen İndir (<span id="releaseVersion">v1.3</span>)</span>
+                    </a>
+
+                    <a href="https://github.com/ScreamAngel/gow3_launcher" target="_blank" rel="noopener noreferrer"
+                       class="btn btn-secondary">
+                        <i class="fa-brands fa-github"></i> GitHub Deposu
+                    </a>
+                </div>
+
+                <!-- Dynamic Download Meta -->
+                <div class="download-meta">
+                    <i class="fa-solid fa-file-zipper"></i>
+                    <span id="downloadFileName">gow3-windows-linux.zip</span> • 
+                    <span id="releaseSize">~84 MB</span> • 
+                    <span id="releaseDate">23 Ekim 2026</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="section" id="ozellikler">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Üstün Yetenekler</span>
+                    <h2 class="section-title">Neden Bu Başlatıcı?</h2>
+                    <p class="section-desc">
+                        God of War III'ü modern donanımlarda karmaşık ayarlarla uğraşmadan en yüksek performansla oynamanız için geliştirildi.
+                    </p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="fa-solid fa-sliders"></i>
+                        </div>
+                        <h3 class="feature-title">Otomatik Donanım Optimizasyonu</h3>
+                        <p class="feature-text">
+                            Sisteminizin GPU ve donanım yeteneklerini tarar; <code>gow3.ini</code> ve <code>gow3-deck.ini</code> yapılandırma dosyalarını en ideal performans için otomatik olarak üretir.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="fa-brands fa-linux"></i>
+                        </div>
+                        <h3 class="feature-title">Linux &amp; Steam Deck &amp; Windows</h3>
+                        <p class="feature-text">
+                            Platform fark etmeksizin çalışır. Linux üzerinde 01.00 ve 01.02, Windows üzerinde 01.02 sürümleriyle tam uyumluluk sunar. Steam Deck el konsolu için optimize edilmiştir.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="fa-solid fa-gamepad"></i>
+                        </div>
+                        <h3 class="feature-title">Gelişmiş Kontrolcü Desteği</h3>
+                        <p class="feature-text">
+                            Sağ analog çubuğu düzeltmeleri, gamepad tuş atamaları ve arayüzdeki özel buton şekilleriyle konsol konforunda oynanış sağlar.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="fa-solid fa-folder-tree"></i>
+                        </div>
+                        <h3 class="feature-title">Akıllı Konum &amp; Yama Tespiti</h3>
+                        <p class="feature-text">
+                            Oyunun kurulu olduğu dizini otomatik tespit eder. Güncellemeleri ve yamaları tek tıkla uygulayarak kurulum karmaşasını ortadan kaldırır.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="fa-solid fa-file-waveform"></i>
+                        </div>
+                        <h3 class="feature-title">Anlık Hata Günlükleri (Log)</h3>
+                        <p class="feature-text">
+                            Olası bir çökme veya problem durumunda, launcher içerisindeki log görüntüleyici sayesinde log dosyalarına anında erişip hata kaynağını tespit edebilirsiniz.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper">
+                            <i class="fa-solid fa-arrows-rotate"></i>
+                        </div>
+                        <h3 class="feature-title">Otomatik Güncelleme Bildirimi</h3>
+                        <p class="feature-text">
+                            Yeni bir sürüm yayınlandığında başlatıcı bunu otomatik denetler ve her zaman en son optimizasyonlarla oynamanızı güvenceye alır.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Showcase / Visual Banner Section -->
+        <section class="section" id="vitrin">
+            <div class="container">
+                <div class="showcase-card">
+                    <img src="img/GOWW8.jpg" alt="God of War III Savaş Sahnesi" class="showcase-img">
+                    <div class="showcase-overlay">
+                        <div class="showcase-info">
+                            <h3>Olimpos Tanrılarına Meydan Okuyun</h3>
+                            <p>PC ve el konsollarında yüksek çözünürlük ve akıcı kare hızlarıyla efsanevi macerayı yeniden yaşayın.</p>
+                        </div>
+                        <a href="#kurulum" class="btn btn-secondary">
+                            <i class="fa-solid fa-circle-play"></i> Başlamaya Hazır Mısınız?
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Setup Guide Section -->
+        <section class="section" id="kurulum">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Hızlı Kurulum</span>
+                    <h2 class="section-title">3 Kolay Adımda Kurulum</h2>
+                    <p class="section-desc">
+                        Karmaşık rehberlere veya komut satırlarına gerek yok; dakikalar içinde savaşa başlayın.
+                    </p>
+                </div>
+
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <span class="step-num">01</span>
+                        <div class="step-icon">
+                            <i class="fa-solid fa-cloud-arrow-down"></i>
+                        </div>
+                        <h3 class="step-title">Arşivi İndirin</h3>
+                        <p class="step-text">
+                            Sayfanın üstündeki "Hemen İndir" butonuna tıklayarak son sürüm <code>gow3-windows-linux.zip</code> dosyasını bilgisayarınıza indirin.
+                        </p>
+                    </div>
+
+                    <div class="step-card">
+                        <span class="step-num">02</span>
+                        <div class="step-icon">
+                            <i class="fa-solid fa-folder-open"></i>
+                        </div>
+                        <h3 class="step-title">Klasöre Çıkartın</h3>
+                        <p class="step-text">
+                            İndirdiğiniz zip arşivini sağ tıklayıp istediğiniz bir dizine çıkartın. Tüm gerekli başlatıcı ve yapılandırma araçları klasörün içindedir.
+                        </p>
+                    </div>
+
+                    <div class="step-card">
+                        <span class="step-num">03</span>
+                        <div class="step-icon">
+                            <i class="fa-solid fa-play"></i>
+                        </div>
+                        <h3 class="step-title">Başlatıcıyı Çalıştırın</h3>
+                        <p class="step-text">
+                            Windows için <code>gow3-launcher-win.exe</code>, Linux &amp; Steam Deck için <code>gow3-launcher</code> dosyasını çalıştırın. Ayarlarınızı kaydedin ve oyunun keyfini çıkarın!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Changelog / Release Notes Section -->
+        <section class="section" id="surum-notlari">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Sürüm Geçmişi</span>
+                    <h2 class="section-title">Son Sürüm Notları</h2>
+                    <p class="section-desc">
+                        Geliştirici tarafından yayınlanan en güncel iyileştirmeler ve hata onarımları.
+                    </p>
+                </div>
+
+                <div class="changelog-box">
+                    <div class="changelog-header">
+                        <div class="changelog-title">
+                            <i class="fa-solid fa-circle-check" style="color: var(--color-gold);"></i>
+                            <span>Sürüm: <strong id="changelogVersion" style="color: #fff;">v1.3</strong></span>
+                        </div>
+                        <span class="badge"><i class="fa-solid fa-clock"></i> En Son Güncelleme</span>
+                    </div>
+
+                    <div class="changelog-body" id="changelogContent">
+                        <div class="changelog-alert">
+                            <i class="fa-solid fa-triangle-exclamation"></i> Dikkat: Windows sürümü God Of War III Remastered 01.02, Linux sürümü 01.00 ve 01.02 desteklemektedir.
+                        </div>
+
+                        <h4 class="changelog-subheading">Öne Çıkan Değişiklikler:</h4>
+                        <p class="changelog-line"><i class="fa-solid fa-check"></i> Windows tarafındaki güncelleme sorunu giderildi.</p>
+                        <p class="changelog-line"><i class="fa-solid fa-check"></i> Sağ analog çubuğu eşleme (mapping) hatası düzeltildi.</p>
+                        <p class="changelog-line"><i class="fa-solid fa-check"></i> Buton atamalarına özel simgeler ve şekiller eklendi.</p>
+                        <p class="changelog-line"><i class="fa-solid fa-check"></i> Kullanıcı arayüzünde performans ve kararlılık geliştirmeleri yapıldı.</p>
+                        <p class="changelog-line"><i class="fa-solid fa-check"></i> Windows desteği stabil hale getirildi ve tespit edilen hatalar giderildi.</p>
+                    </div>
+
+                    <div class="changelog-footer">
+                        <a href="https://github.com/ScreamAngel/gow3_launcher/releases" target="_blank" rel="noopener noreferrer">
+                            <span>GitHub Releases üzerinden tüm sürümleri ve detayları görüntüle</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="gow3.png" alt="God of War III">
+                    <div>
+                        <h4>GOD OF WAR III PC LAUNCHER</h4>
+                        <p>Açık kaynaklı, topluluk odaklı başlatıcı projesi.</p>
+                    </div>
+                </div>
+
+                <ul class="footer-links">
+                    <li><a href="#hero">Ana Sayfa</a></li>
+                    <li><a href="#ozellikler">Özellikler</a></li>
+                    <li><a href="#kurulum">Kurulum</a></li>
+                    <li><a href="https://github.com/ScreamAngel/gow3_launcher" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a></li>
+                </ul>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 <a href="https://github.com/ScreamAngel" target="_blank" rel="noopener noreferrer" class="footer-author">ScreamAngel</a>. Açık kaynak kodlu yazılım.</p>
+                <p class="footer-disclaimer">
+                    God of War ve ilgili tüm materyaller Sony Interactive Entertainment ve Santa Monica Studio'nun tescilli ticari markalarıdır. Bu proje kâr amacı gütmeyen hayran yapımı bir başlatıcıdır.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dynamic JavaScript -->
+    <script src="gow3.js"></script>
+</body>
+
+</html>
