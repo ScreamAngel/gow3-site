@@ -240,11 +240,13 @@ header {
   transition: transform var(--transition-fast);
 }
 
-.dropdown:hover .dropdown-btn {
+.dropdown:hover .dropdown-btn,
+.dropdown.open .dropdown-btn {
   color: #fff;
 }
 
-.dropdown:hover .dropdown-btn i {
+.dropdown:hover .dropdown-btn i,
+.dropdown.open .dropdown-btn i {
   transform: rotate(180deg);
 }
 
@@ -261,11 +263,23 @@ header {
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
   padding: 8px 0;
   z-index: 100;
-  margin-top: 12px;
+  margin-top: 8px;
   animation: fadeInDown 0.25s ease-out forwards;
 }
 
-.dropdown:hover .dropdown-content {
+/* Görünmez köprü: Mouse butondan menüye geçerken hover boşluğunu doldurur ve menünün kapanmasını önler */
+.dropdown-content::before {
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background: transparent;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown.open .dropdown-content {
   display: block;
 }
 

@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initAudioPlayer();
     initMobileMenu();
     initSmoothScroll();
+    initDropdown();
 });
 
 /* ==========================================================================
@@ -258,5 +259,34 @@ function initSmoothScroll() {
                 });
             }
         });
+    });
+}
+
+/* ==========================================================================
+   5. Dropdown Menu Controller (Click & Keyboard Support)
+   ========================================================================== */
+function initDropdown() {
+    const dropdown = document.querySelector('.dropdown');
+    if (!dropdown) return;
+    const btn = dropdown.querySelector('.dropdown-btn');
+    if (!btn) return;
+
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdown.classList.toggle('open');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove('open');
+        }
+    });
+
+    // Close dropdown with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            dropdown.classList.remove('open');
+        }
     });
 }
