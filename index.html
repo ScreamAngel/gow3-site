@@ -45,7 +45,7 @@
     <link rel="icon" type="image/png" href="gow3.png">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="gow3.css?v=1.4">
+    <link rel="stylesheet" href="gow3.css?v=1.5">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -66,17 +66,17 @@
                     <i class="fa-solid fa-bars"></i>
                 </button>
 
-                <!-- Navigation Links & Audio Player -->
+                <!-- Navigation Links & Controls -->
                 <div class="nav-container" id="navMenu">
                     <ul class="nav-links">
-                        <li><a href="#hero">Ana Sayfa</a></li>
-                        <li><a href="#ozellikler">Özellikler</a></li>
-                        <li><a href="#vitrin">Önizleme</a></li>
-                        <li><a href="#kurulum">Kurulum</a></li>
-                        <li><a href="#surum-notlari">Sürüm Notları</a></li>
+                        <li><a href="#hero" data-i18n="nav_home">Ana Sayfa</a></li>
+                        <li><a href="#ozellikler" data-i18n="nav_features">Özellikler</a></li>
+                        <li><a href="#vitrin" data-i18n="nav_preview">Önizleme</a></li>
+                        <li><a href="#kurulum" data-i18n="nav_install">Kurulum</a></li>
+                        <li><a href="#surum-notlari" data-i18n="nav_notes">Sürüm Notları</a></li>
                         <li class="dropdown">
                             <button class="dropdown-btn" type="button">
-                                Diğer Çalışmalarım <i class="fa-solid fa-chevron-down"></i>
+                                <span data-i18n="nav_projects">Diğer Çalışmalarım</span> <i class="fa-solid fa-chevron-down"></i>
                             </button>
                             <div class="dropdown-content">
                                 <a href="https://github.com/ScreamAngel/Distro-Wars" target="_blank" rel="noopener noreferrer">
@@ -92,18 +92,36 @@
                         </li>
                     </ul>
 
-                    <!-- Spartan Mini Audio Player -->
-                    <div class="spartan-player">
-                        <audio id="bgAudio" preload="none" src="rage of sparta.mp3"></audio>
-                        <button id="audioPlayBtn" class="player-btn" type="button" title="Müziği Çal / Durdur">
-                            <i class="fa-solid fa-play"></i>
-                        </button>
-                        <div class="player-info" id="audioTrackBtn" title="Diğer parçaya geçmek için tıklayın">
-                            <div class="visualizer" id="audioVisualizer">
-                                <span></span><span></span><span></span><span></span>
+                    <!-- Controls: Language Selector & Spartan Mini Audio Player -->
+                    <div class="nav-actions">
+                        <!-- Language Selector Dropdown -->
+                        <div class="lang-selector dropdown">
+                            <button class="lang-btn dropdown-btn" id="langDropdownBtn" type="button" aria-label="Language / Dil">
+                                <i class="fa-solid fa-globe globe-icon"></i>
+                                <span id="currentLangLabel">🇹🇷 Türkçe</span>
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-content lang-dropdown-menu">
+                                <a href="#" data-lang="tr" class="lang-option active">🇹🇷 Türkçe</a>
+                                <a href="#" data-lang="en" class="lang-option">🇬🇧 English</a>
+                                <a href="#" data-lang="de" class="lang-option">🇩🇪 Deutsch</a>
+                                <a href="#" data-lang="es" class="lang-option">🇪🇸 Español</a>
                             </div>
-                            <span id="currentTrackName" class="track-name">Rage of Sparta</span>
-                            <i class="fa-solid fa-forward-step track-next-icon"></i>
+                        </div>
+
+                        <!-- Spartan Mini Audio Player -->
+                        <div class="spartan-player">
+                            <audio id="bgAudio" preload="none" src="rage of sparta.mp3"></audio>
+                            <button id="audioPlayBtn" class="player-btn" type="button" title="Müziği Çal / Durdur">
+                                <i class="fa-solid fa-play"></i>
+                            </button>
+                            <div class="player-info" id="audioTrackBtn" title="Diğer parçaya geçmek için tıklayın">
+                                <div class="visualizer" id="audioVisualizer">
+                                    <span></span><span></span><span></span><span></span>
+                                </div>
+                                <span id="currentTrackName" class="track-name">Rage of Sparta</span>
+                                <i class="fa-solid fa-forward-step track-next-icon"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -116,15 +134,15 @@
         <section class="hero" id="hero">
             <div class="container">
                 <div class="hero-badge">
-                    <i class="fa-solid fa-fire"></i> Açık Kaynaklı PC Başlatıcı
+                    <i class="fa-solid fa-fire"></i> <span data-i18n="hero_badge">Açık Kaynaklı PC Başlatıcı</span>
                 </div>
 
                 <div class="hero-logo-wrapper">
-                    <img src="gow3-remastered.png?v=1.4" alt="God of War III Remastered" class="hero-logo">
+                    <img src="gow3-remastered.png?v=1.5" alt="God of War III Remastered" class="hero-logo">
                 </div>
 
-                <h1>God Of War III PC Launcher</h1>
-                <p class="hero-subtitle">
+                <h1 data-i18n="hero_title">God Of War III PC Launcher</h1>
+                <p class="hero-subtitle" data-i18n="hero_subtitle">
                     Windows, Linux ve Steam Deck üzerinde God of War III Remastered deneyimini kusursuzlaştırmak için tasarlanmış; 
                     otomatik donanım optimizasyonu, akıllı yama yönetimi ve gelişmiş kontrolcü desteğine sahip modern başlatıcı.
                 </p>
@@ -132,19 +150,19 @@
                 <!-- Status & Compatibility Badges -->
                 <div class="badges-row">
                     <span class="badge badge-version" id="versionBadge">
-                        <i class="fa-solid fa-code-branch"></i> v1.3 Yayında
+                        <i class="fa-solid fa-code-branch"></i> <span id="versionTagText">v1.3</span> <span id="versionSuffixText" data-i18n="badge_version_suffix">Yayında</span>
                     </span>
                     <span class="badge">
-                        <i class="fa-brands fa-windows"></i> Windows 01.02
+                        <i class="fa-brands fa-windows"></i> <span data-i18n="badge_win">Windows 01.02</span>
                     </span>
                     <span class="badge">
-                        <i class="fa-brands fa-linux"></i> Linux 01.00 &amp; 01.02
+                        <i class="fa-brands fa-linux"></i> <span data-i18n="badge_linux">Linux 01.00 &amp; 01.02</span>
                     </span>
                     <span class="badge">
-                        <i class="fa-solid fa-gamepad"></i> Steam Deck Hazır
+                        <i class="fa-solid fa-gamepad"></i> <span data-i18n="badge_deck">Steam Deck Hazır</span>
                     </span>
                     <span class="badge">
-                        <i class="fa-solid fa-bolt"></i> %100 Ücretsiz &amp; Açık Kaynak
+                        <i class="fa-solid fa-bolt"></i> <span data-i18n="badge_free">%100 Ücretsiz &amp; Açık Kaynak</span>
                     </span>
                 </div>
 
@@ -153,12 +171,12 @@
                     <a href="https://github.com/ScreamAngel/gow3_launcher/releases/latest/download/gow3-windows-linux.zip"
                        id="downloadBtn" class="btn btn-primary" title="Son sürümü hemen indirin">
                         <i class="fa-solid fa-download"></i>
-                        <span class="btn-text">Hemen İndir (<span id="releaseVersion">v1.3</span>)</span>
+                        <span class="btn-text"><span id="btnDownloadPrefix" data-i18n="btn_download">Hemen İndir</span> (<span id="releaseVersion">v1.3</span>)</span>
                     </a>
 
                     <a href="https://github.com/ScreamAngel/gow3_launcher" target="_blank" rel="noopener noreferrer"
                        class="btn btn-secondary">
-                        <i class="fa-brands fa-github"></i> GitHub Deposu
+                        <i class="fa-brands fa-github"></i> <span data-i18n="btn_github">GitHub Deposu</span>
                     </a>
                 </div>
 
@@ -176,9 +194,9 @@
         <section class="section" id="ozellikler">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-tag">Üstün Yetenekler</span>
-                    <h2 class="section-title">Neden Bu Başlatıcı?</h2>
-                    <p class="section-desc">
+                    <span class="section-tag" data-i18n="feat_tag">Üstün Yetenekler</span>
+                    <h2 class="section-title" data-i18n="feat_title">Neden Bu Başlatıcı?</h2>
+                    <p class="section-desc" data-i18n="feat_desc">
                         God of War III'ü modern donanımlarda karmaşık ayarlarla uğraşmadan en yüksek performansla oynamanız için geliştirildi.
                     </p>
                 </div>
@@ -188,8 +206,8 @@
                         <div class="feature-icon-wrapper">
                             <i class="fa-solid fa-sliders"></i>
                         </div>
-                        <h3 class="feature-title">Otomatik Donanım Optimizasyonu</h3>
-                        <p class="feature-text">
+                        <h3 class="feature-title" data-i18n="feat1_title">Otomatik Donanım Optimizasyonu</h3>
+                        <p class="feature-text" data-i18n="feat1_desc">
                             Sisteminizin GPU ve donanım yeteneklerini tarar; <code>gow3.ini</code> ve <code>gow3-deck.ini</code> yapılandırma dosyalarını en ideal performans için otomatik olarak üretir.
                         </p>
                     </div>
@@ -198,8 +216,8 @@
                         <div class="feature-icon-wrapper">
                             <i class="fa-brands fa-linux"></i>
                         </div>
-                        <h3 class="feature-title">Linux &amp; Steam Deck &amp; Windows</h3>
-                        <p class="feature-text">
+                        <h3 class="feature-title" data-i18n="feat2_title">Linux &amp; Steam Deck &amp; Windows</h3>
+                        <p class="feature-text" data-i18n="feat2_desc">
                             Platform fark etmeksizin çalışır. Linux üzerinde 01.00 ve 01.02, Windows üzerinde 01.02 sürümleriyle tam uyumluluk sunar. Steam Deck el konsolu için optimize edilmiştir.
                         </p>
                     </div>
@@ -208,8 +226,8 @@
                         <div class="feature-icon-wrapper">
                             <i class="fa-solid fa-gamepad"></i>
                         </div>
-                        <h3 class="feature-title">Gelişmiş Kontrolcü Desteği</h3>
-                        <p class="feature-text">
+                        <h3 class="feature-title" data-i18n="feat3_title">Gelişmiş Kontrolcü Desteği</h3>
+                        <p class="feature-text" data-i18n="feat3_desc">
                             Sağ analog çubuğu düzeltmeleri, gamepad tuş atamaları ve arayüzdeki özel buton şekilleriyle konsol konforunda oynanış sağlar.
                         </p>
                     </div>
@@ -218,8 +236,8 @@
                         <div class="feature-icon-wrapper">
                             <i class="fa-solid fa-folder-tree"></i>
                         </div>
-                        <h3 class="feature-title">Akıllı Konum &amp; Yama Tespiti</h3>
-                        <p class="feature-text">
+                        <h3 class="feature-title" data-i18n="feat4_title">Akıllı Konum &amp; Yama Tespiti</h3>
+                        <p class="feature-text" data-i18n="feat4_desc">
                             Oyunun kurulu olduğu dizini otomatik tespit eder. Güncellemeleri ve yamaları tek tıkla uygulayarak kurulum karmaşasını ortadan kaldırır.
                         </p>
                     </div>
@@ -228,8 +246,8 @@
                         <div class="feature-icon-wrapper">
                             <i class="fa-solid fa-file-waveform"></i>
                         </div>
-                        <h3 class="feature-title">Anlık Hata Günlükleri (Log)</h3>
-                        <p class="feature-text">
+                        <h3 class="feature-title" data-i18n="feat5_title">Anlık Hata Günlükleri (Log)</h3>
+                        <p class="feature-text" data-i18n="feat5_desc">
                             Olası bir çökme veya problem durumunda, launcher içerisindeki log görüntüleyici sayesinde log dosyalarına anında erişip hata kaynağını tespit edebilirsiniz.
                         </p>
                     </div>
@@ -238,8 +256,8 @@
                         <div class="feature-icon-wrapper">
                             <i class="fa-solid fa-arrows-rotate"></i>
                         </div>
-                        <h3 class="feature-title">Otomatik Güncelleme Bildirimi</h3>
-                        <p class="feature-text">
+                        <h3 class="feature-title" data-i18n="feat6_title">Otomatik Güncelleme Bildirimi</h3>
+                        <p class="feature-text" data-i18n="feat6_desc">
                             Yeni bir sürüm yayınlandığında başlatıcı bunu otomatik denetler ve her zaman en son optimizasyonlarla oynamanızı güvenceye alır.
                         </p>
                     </div>
@@ -254,11 +272,11 @@
                     <img src="img/GOWW8.jpg" alt="God of War III Savaş Sahnesi" class="showcase-img">
                     <div class="showcase-overlay">
                         <div class="showcase-info">
-                            <h3>Olimpos Tanrılarına Meydan Okuyun</h3>
-                            <p>PC ve el konsollarında yüksek çözünürlük ve akıcı kare hızlarıyla efsanevi macerayı yeniden yaşayın.</p>
+                            <h3 data-i18n="showcase_title">Olimpos Tanrılarına Meydan Okuyun</h3>
+                            <p data-i18n="showcase_desc">PC ve el konsollarında yüksek çözünürlük ve akıcı kare hızlarıyla efsanevi macerayı yeniden yaşayın.</p>
                         </div>
                         <a href="#kurulum" class="btn btn-secondary">
-                            <i class="fa-solid fa-circle-play"></i> Başlamaya Hazır Mısınız?
+                            <i class="fa-solid fa-circle-play"></i> <span data-i18n="showcase_btn">Başlamaya Hazır Mısınız?</span>
                         </a>
                     </div>
                 </div>
@@ -269,9 +287,9 @@
         <section class="section" id="kurulum">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-tag">Hızlı Kurulum</span>
-                    <h2 class="section-title">3 Kolay Adımda Kurulum</h2>
-                    <p class="section-desc">
+                    <span class="section-tag" data-i18n="step_tag">Hızlı Kurulum</span>
+                    <h2 class="section-title" data-i18n="step_title">3 Kolay Adımda Kurulum</h2>
+                    <p class="section-desc" data-i18n="step_desc">
                         Karmaşık rehberlere veya komut satırlarına gerek yok; dakikalar içinde savaşa başlayın.
                     </p>
                 </div>
@@ -282,8 +300,8 @@
                         <div class="step-icon">
                             <i class="fa-solid fa-cloud-arrow-down"></i>
                         </div>
-                        <h3 class="step-title">Arşivi İndirin</h3>
-                        <p class="step-text">
+                        <h3 class="step-title" data-i18n="step1_title">Arşivi İndirin</h3>
+                        <p class="step-text" data-i18n="step1_desc">
                             Sayfanın üstündeki "Hemen İndir" butonuna tıklayarak son sürüm <code>gow3-windows-linux.zip</code> dosyasını bilgisayarınıza indirin.
                         </p>
                     </div>
@@ -293,8 +311,8 @@
                         <div class="step-icon">
                             <i class="fa-solid fa-folder-open"></i>
                         </div>
-                        <h3 class="step-title">Klasöre Çıkartın</h3>
-                        <p class="step-text">
+                        <h3 class="step-title" data-i18n="step2_title">Klasöre Çıkartın</h3>
+                        <p class="step-text" data-i18n="step2_desc">
                             İndirdiğiniz zip arşivini sağ tıklayıp istediğiniz bir dizine çıkartın. Tüm gerekli başlatıcı ve yapılandırma araçları klasörün içindedir.
                         </p>
                     </div>
@@ -304,8 +322,8 @@
                         <div class="step-icon">
                             <i class="fa-solid fa-play"></i>
                         </div>
-                        <h3 class="step-title">Başlatıcıyı Çalıştırın</h3>
-                        <p class="step-text">
+                        <h3 class="step-title" data-i18n="step3_title">Başlatıcıyı Çalıştırın</h3>
+                        <p class="step-text" data-i18n="step3_desc">
                             Windows için <code>gow3-launcher-win.exe</code>, Linux &amp; Steam Deck için <code>gow3-launcher</code> dosyasını çalıştırın. Ayarlarınızı kaydedin ve oyunun keyfini çıkarın!
                         </p>
                     </div>
@@ -317,9 +335,9 @@
         <section class="section" id="surum-notlari">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-tag">Sürüm Geçmişi</span>
-                    <h2 class="section-title">Son Sürüm Notları</h2>
-                    <p class="section-desc">
+                    <span class="section-tag" data-i18n="change_tag">Sürüm Geçmişi</span>
+                    <h2 class="section-title" data-i18n="change_title">Son Sürüm Notları</h2>
+                    <p class="section-desc" data-i18n="change_desc">
                         Geliştirici tarafından yayınlanan en güncel iyileştirmeler ve hata onarımları.
                     </p>
                 </div>
@@ -328,27 +346,27 @@
                     <div class="changelog-header">
                         <div class="changelog-title">
                             <i class="fa-solid fa-circle-check" style="color: var(--color-gold);"></i>
-                            <span>Sürüm: <strong id="changelogVersion" style="color: #fff;">v1.3</strong></span>
+                            <span><span data-i18n="change_version_label">Sürüm:</span> <strong id="changelogVersion" style="color: #fff;">v1.3</strong></span>
                         </div>
-                        <span class="badge"><i class="fa-solid fa-clock"></i> En Son Güncelleme</span>
+                        <span class="badge"><i class="fa-solid fa-clock"></i> <span data-i18n="change_badge">En Son Güncelleme</span></span>
                     </div>
 
                     <div class="changelog-body" id="changelogContent">
                         <div class="changelog-alert">
-                            <i class="fa-solid fa-triangle-exclamation"></i> Dikkat: Windows sürümü God Of War III Remastered 01.02, Linux sürümü 01.00 ve 01.02 desteklemektedir.
+                            <i class="fa-solid fa-triangle-exclamation"></i> <span data-i18n="change_alert">Dikkat: Windows sürümü God Of War III Remastered 01.02, Linux sürümü 01.00 ve 01.02 desteklemektedir.</span>
                         </div>
 
-                        <h4 class="changelog-subheading">Öne Çıkan Değişiklikler:</h4>
-                        <p class="changelog-line"><i class="fa-solid fa-check"></i> Windows tarafındaki güncelleme sorunu giderildi.</p>
-                        <p class="changelog-line"><i class="fa-solid fa-check"></i> Sağ analog çubuğu eşleme (mapping) hatası düzeltildi.</p>
-                        <p class="changelog-line"><i class="fa-solid fa-check"></i> Buton atamalarına özel simgeler ve şekiller eklendi.</p>
-                        <p class="changelog-line"><i class="fa-solid fa-check"></i> Kullanıcı arayüzünde performans ve kararlılık geliştirmeleri yapıldı.</p>
-                        <p class="changelog-line"><i class="fa-solid fa-check"></i> Windows desteği stabil hale getirildi ve tespit edilen hatalar giderildi.</p>
+                        <h4 class="changelog-subheading" data-i18n="change_sub">Öne Çıkan Değişiklikler:</h4>
+                        <p class="changelog-line"><i class="fa-solid fa-check"></i> <span data-i18n="change_line1">Windows tarafındaki güncelleme sorunu giderildi.</span></p>
+                        <p class="changelog-line"><i class="fa-solid fa-check"></i> <span data-i18n="change_line2">Sağ analog çubuğu eşleme (mapping) hatası düzeltildi.</span></p>
+                        <p class="changelog-line"><i class="fa-solid fa-check"></i> <span data-i18n="change_line3">Buton atamalarına özel simgeler ve şekiller eklendi.</span></p>
+                        <p class="changelog-line"><i class="fa-solid fa-check"></i> <span data-i18n="change_line4">Kullanıcı arayüzünde performans ve kararlılık geliştirmeleri yapıldı.</span></p>
+                        <p class="changelog-line"><i class="fa-solid fa-check"></i> <span data-i18n="change_line5">Windows desteği stabil hale getirildi ve tespit edilen hatalar giderildi.</span></p>
                     </div>
 
                     <div class="changelog-footer">
                         <a href="https://github.com/ScreamAngel/gow3_launcher/releases" target="_blank" rel="noopener noreferrer">
-                            <span>GitHub Releases üzerinden tüm sürümleri ve detayları görüntüle</span>
+                            <span data-i18n="change_github">GitHub Releases üzerinden tüm sürümleri ve detayları görüntüle</span>
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
                         </a>
                     </div>
@@ -365,14 +383,14 @@
                     <img src="gow3.png" alt="God of War III">
                     <div>
                         <h4>GOD OF WAR III PC LAUNCHER</h4>
-                        <p>Açık kaynaklı, topluluk odaklı başlatıcı projesi.</p>
+                        <p data-i18n="footer_sub">Açık kaynaklı, topluluk odaklı başlatıcı projesi.</p>
                     </div>
                 </div>
 
                 <ul class="footer-links">
-                    <li><a href="#hero">Ana Sayfa</a></li>
-                    <li><a href="#ozellikler">Özellikler</a></li>
-                    <li><a href="#kurulum">Kurulum</a></li>
+                    <li><a href="#hero" data-i18n="nav_home">Ana Sayfa</a></li>
+                    <li><a href="#ozellikler" data-i18n="nav_features">Özellikler</a></li>
+                    <li><a href="#kurulum" data-i18n="nav_install">Kurulum</a></li>
                     <li><a href="https://github.com/ScreamAngel/gow3_launcher" target="_blank" rel="noopener noreferrer">
                         <i class="fa-brands fa-github"></i> GitHub
                     </a></li>
@@ -380,8 +398,8 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2026 <a href="https://github.com/ScreamAngel" target="_blank" rel="noopener noreferrer" class="footer-author">ScreamAngel</a>. Açık kaynak kodlu yazılım.</p>
-                <p class="footer-disclaimer">
+                <p>&copy; 2026 <a href="https://github.com/ScreamAngel" target="_blank" rel="noopener noreferrer" class="footer-author">ScreamAngel</a>. <span data-i18n="footer_copy">Açık kaynak kodlu yazılım.</span></p>
+                <p class="footer-disclaimer" data-i18n="footer_disc">
                     God of War ve ilgili tüm materyaller Sony Interactive Entertainment ve Santa Monica Studio'nun tescilli ticari markalarıdır. Bu proje kâr amacı gütmeyen hayran yapımı bir başlatıcıdır.
                 </p>
             </div>
@@ -389,7 +407,7 @@
     </footer>
 
     <!-- Dynamic JavaScript -->
-    <script src="gow3.js?v=1.4"></script>
+    <script src="gow3.js?v=1.5"></script>
 </body>
 
 </html>
