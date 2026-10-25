@@ -445,12 +445,18 @@ header {
 }
 
 .hero-logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto 28px;
-  max-width: 480px;
+  width: 100%;
+  text-align: center;
 }
 
 .hero-logo {
-  width: 100%;
+  display: block;
+  margin: 0 auto;
+  width: 90%;
   max-width: 440px;
   height: auto;
   filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 25px rgba(211, 38, 38, 0.35));
@@ -1008,11 +1014,11 @@ footer {
   }
   
   .showcase-img {
-    height: 300px;
+    height: 340px;
   }
   
   .showcase-overlay {
-    padding: 24px;
+    padding: 28px 24px;
   }
 }
 
@@ -1065,6 +1071,15 @@ footer {
     padding: 50px 0 40px;
   }
 
+  .hero-logo-wrapper {
+    margin: 0 auto 20px;
+  }
+
+  .hero-logo {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
   .hero h1 {
     font-size: 2rem;
   }
@@ -1076,6 +1091,47 @@ footer {
   .btn {
     width: 100%;
     padding: 14px 24px;
+  }
+
+  /* Showcase Mobile Layout: Metinlerin taşmasını ve kesilmesini engeller */
+  .showcase-card {
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .showcase-img {
+    height: 220px;
+    width: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .showcase-overlay {
+    position: static;
+    background: rgba(14, 16, 24, 0.98);
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .showcase-info h3 {
+    font-size: 1.35rem;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+
+  .showcase-info p {
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  .showcase-overlay .btn {
+    width: 100%;
+    padding: 13px 20px;
+    font-size: 0.95rem;
   }
 
   .section-title {
@@ -1094,7 +1150,25 @@ footer {
   }
 
   .hero-logo {
-    max-width: 280px;
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  .showcase-img {
+    height: 190px;
+  }
+
+  .showcase-overlay {
+    padding: 20px 16px;
+    gap: 14px;
+  }
+
+  .showcase-info h3 {
+    font-size: 1.2rem;
+  }
+
+  .showcase-info p {
+    font-size: 0.88rem;
   }
 
   .badges-row {
