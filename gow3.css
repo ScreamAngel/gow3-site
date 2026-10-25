@@ -114,6 +114,11 @@ header {
   transition: background var(--transition-normal);
 }
 
+header .container {
+  width: 95%;
+  max-width: 1500px;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -131,6 +136,8 @@ header {
   letter-spacing: 1.5px;
   color: #fff;
   transition: transform var(--transition-fast);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .brand-logo:hover {
@@ -147,6 +154,10 @@ header {
 
 .brand-logo:hover .logo-img {
   filter: drop-shadow(0 0 16px rgba(239, 35, 60, 0.9));
+}
+
+.brand-text {
+  white-space: nowrap;
 }
 
 .brand-text span {
@@ -175,23 +186,29 @@ header {
 .nav-container {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 20px;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 18px;
+  flex-shrink: 0;
+}
+
+.nav-links li {
+  flex-shrink: 0;
 }
 
 .nav-links a {
-  font-size: 0.95rem;
+  font-size: 0.94rem;
   font-weight: 500;
   color: var(--color-text-muted);
   transition: color var(--transition-fast);
   position: relative;
   padding: 6px 0;
+  white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -225,7 +242,7 @@ header {
 .dropdown-btn {
   background: transparent;
   color: var(--color-text-muted);
-  font-size: 0.95rem;
+  font-size: 0.94rem;
   font-weight: 500;
   font-family: inherit;
   border: none;
@@ -235,6 +252,7 @@ header {
   align-items: center;
   gap: 6px;
   transition: color var(--transition-fast);
+  white-space: nowrap;
 }
 
 .dropdown-btn i {
@@ -310,12 +328,14 @@ header {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
+  flex-shrink: 0;
 }
 
 /* Language Selector Styles */
 .lang-selector {
   position: relative;
+  flex-shrink: 0;
 }
 
 .lang-btn {
@@ -331,6 +351,7 @@ header {
   gap: 8px;
   cursor: pointer;
   transition: all var(--transition-fast);
+  white-space: nowrap;
 }
 
 .lang-btn:hover,
@@ -362,6 +383,7 @@ header {
   font-weight: 500;
   color: var(--color-text-muted);
   transition: all var(--transition-fast);
+  white-space: nowrap;
 }
 
 .lang-dropdown-menu a:hover,
@@ -388,6 +410,8 @@ header {
   border-radius: var(--radius-pill);
   gap: 10px;
   transition: all var(--transition-normal);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .spartan-player:hover {
@@ -423,6 +447,7 @@ header {
   gap: 8px;
   cursor: pointer;
   user-select: none;
+  white-space: nowrap;
 }
 
 .track-name {
@@ -430,6 +455,7 @@ header {
   font-weight: 600;
   color: #e5e7eb;
   letter-spacing: 0.3px;
+  white-space: nowrap;
 }
 
 .track-next-icon {
@@ -1080,21 +1106,7 @@ footer {
 /* ==========================================================================
    Responsive Breakpoints
    ========================================================================== */
-@media (max-width: 992px) {
-  .hero h1 {
-    font-size: 2.4rem;
-  }
-  
-  .showcase-img {
-    height: 340px;
-  }
-  
-  .showcase-overlay {
-    padding: 28px 24px;
-  }
-}
-
-@media (max-width: 768px) {
+@media (max-width: 1140px) {
   .menu-toggle {
     display: block;
   }
@@ -1170,7 +1182,23 @@ footer {
     width: 100%;
     justify-content: center;
   }
+}
 
+@media (max-width: 992px) {
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+  
+  .showcase-img {
+    height: 340px;
+  }
+  
+  .showcase-overlay {
+    padding: 28px 24px;
+  }
+}
+
+@media (max-width: 768px) {
   .hero {
     padding: 50px 0 40px;
   }
