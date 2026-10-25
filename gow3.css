@@ -218,6 +218,8 @@ header {
 .dropdown {
   position: relative;
   display: inline-block;
+  padding-bottom: 12px;
+  margin-bottom: -12px;
 }
 
 .dropdown-btn {
@@ -263,18 +265,18 @@ header {
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
   padding: 8px 0;
   z-index: 100;
-  margin-top: 8px;
-  animation: fadeInDown 0.25s ease-out forwards;
+  margin-top: 4px;
+  animation: fadeInDown 0.2s ease-out forwards;
 }
 
-/* Görünmez köprü: Mouse butondan menüye geçerken hover boşluğunu doldurur ve menünün kapanmasını önler */
+/* Görünmez köprü: Mouse butondan menüye geçerken hover boşluğunu tamamen örter */
 .dropdown-content::before {
   content: '';
   position: absolute;
-  top: -12px;
+  top: -16px;
   left: 0;
   right: 0;
-  height: 12px;
+  height: 16px;
   background: transparent;
 }
 
