@@ -973,29 +973,89 @@ header .container {
   border-left: 4px solid var(--color-primary);
   padding: 12px 16px;
   border-radius: var(--radius-sm);
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   color: #ff9999;
   font-weight: 500;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.changelog-alert i {
+  color: var(--color-primary);
+  margin-top: 3px;
+  font-size: 1.05rem;
+  flex-shrink: 0;
+}
+
+.changelog-alert.info-alert {
+  border-left-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.12);
+  color: #93c5fd;
+}
+
+.changelog-alert.info-alert i {
+  color: #60a5fa;
 }
 
 .changelog-subheading {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: var(--color-gold);
-  margin: 20px 0 10px;
+  margin: 24px 0 12px;
   font-family: var(--font-heading);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.changelog-subheading i {
+  font-size: 0.95rem;
+  color: var(--color-primary);
 }
 
 .changelog-line {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   display: flex;
   align-items: flex-start;
-  gap: 10px;
+  gap: 12px;
+  line-height: 1.6;
 }
 
 .changelog-line i {
   color: #4ade80;
   margin-top: 5px;
   font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.changelog-text {
+  margin-bottom: 12px;
+  color: #d1d5db;
+  line-height: 1.65;
+}
+
+.changelog-body code {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 2px 7px;
+  border-radius: 4px;
+  color: #ff8c8c;
+  font-size: 0.9em;
+  font-family: monospace;
+}
+
+.changelog-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 40px 20px;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+}
+
+.changelog-loading i {
+  color: var(--color-gold);
+  font-size: 1.3rem;
 }
 
 .changelog-footer {

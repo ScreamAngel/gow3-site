@@ -79,13 +79,6 @@ const translations = {
         change_desc: "Geliştirici tarafından yayınlanan en güncel iyileştirmeler ve hata onarımları.",
         change_version_label: "Sürüm:",
         change_badge: "En Son Güncelleme",
-        change_alert: "Dikkat: Windows sürümü God Of War III Remastered 01.02, Linux sürümü 01.00 ve 01.02 desteklemektedir.",
-        change_sub: "Öne Çıkan Değişiklikler:",
-        change_line1: "Windows tarafındaki güncelleme sorunu giderildi.",
-        change_line2: "Sağ analog çubuğu eşleme (mapping) hatası düzeltildi.",
-        change_line3: "Buton atamalarına özel simgeler ve şekiller eklendi.",
-        change_line4: "Kullanıcı arayüzünde performans ve kararlılık geliştirmeleri yapıldı.",
-        change_line5: "Windows desteği stabil hale getirildi ve tespit edilen hatalar giderildi.",
         change_github: "GitHub Releases üzerinden tüm sürümleri ve detayları görüntüle",
         footer_sub: "Açık kaynaklı, topluluk odaklı başlatıcı projesi.",
         footer_copy: "Açık kaynak kodlu yazılım.",
@@ -142,13 +135,6 @@ const translations = {
         change_desc: "The latest improvements and bug fixes published by the developer.",
         change_version_label: "Version:",
         change_badge: "Latest Release",
-        change_alert: "Attention: Windows version supports God Of War III Remastered 01.02, Linux version supports 01.00 and 01.02.",
-        change_sub: "Highlighted Changes:",
-        change_line1: "Fixed update issues on Windows systems.",
-        change_line2: "Fixed right analog stick mapping error.",
-        change_line3: "Added custom shapes and icons to button assignments.",
-        change_line4: "Performance and stability enhancements made across the UI.",
-        change_line5: "Windows support stabilized and identified bugs resolved.",
         change_github: "View all releases and full details on GitHub Releases",
         footer_sub: "Open source, community-driven launcher project.",
         footer_copy: "Open source software.",
@@ -205,13 +191,6 @@ const translations = {
         change_desc: "Die neuesten Verbesserungen und Fehlerbehebungen des Entwicklers.",
         change_version_label: "Version:",
         change_badge: "Neueste Version",
-        change_alert: "Achtung: Windows unterstützt God of War III Remastered 01.02, Linux unterstützt 01.00 und 01.02.",
-        change_sub: "Wichtigste Änderungen:",
-        change_line1: "Update-Probleme unter Windows behoben.",
-        change_line2: "Fehler bei der Zuordnung des rechten Analogsticks behoben.",
-        change_line3: "Spezielle Symbole und Formen zu Tastenzuweisungen hinzugefügt.",
-        change_line4: "Leistungs- und Stabilitätsverbesserungen der Benutzeroberfläche.",
-        change_line5: "Windows-Unterstützung stabilisiert und Fehler behoben.",
         change_github: "Alle Versionen und Details auf GitHub Releases anzeigen",
         footer_sub: "Open-Source-Launcher-Projekt aus der Community.",
         footer_copy: "Open-Source-Software.",
@@ -268,13 +247,6 @@ const translations = {
         change_desc: "Las últimas mejoras y correcciones de errores publicadas por el desarrollador.",
         change_version_label: "Versión:",
         change_badge: "Última Versión",
-        change_alert: "Atención: La versión para Windows es compatible con God of War III Remastered 01.02, la versión para Linux con 01.00 y 01.02.",
-        change_sub: "Cambios Destacados:",
-        change_line1: "Se corrigió el problema de actualización en Windows.",
-        change_line2: "Se corrigió el error de mapeo del stick analógico derecho.",
-        change_line3: "Se añadieron formas e iconos personalizados a la asignación de botones.",
-        change_line4: "Mejoras de rendimiento y estabilidad en la interfaz de usuario.",
-        change_line5: "Soporte de Windows estabilizado y errores resueltos.",
         change_github: "Ver todas las versiones y detalles en GitHub Releases",
         footer_sub: "Proyecto de lanzador de código abierto impulsado por la comunidad.",
         footer_copy: "Software de código abierto.",
@@ -356,6 +328,9 @@ function applyLanguage(lang) {
     if (latestReleaseData) {
         updateReleaseDateUI(latestReleaseData);
     }
+
+    // Update release notes changelog for the active language
+    updateChangelogUI(lang);
 }
 
 function updateReleaseDateUI(data) {
@@ -373,12 +348,298 @@ function updateReleaseDateUI(data) {
 }
 
 /* ==========================================================================
-   2. Dynamic GitHub Release Fetcher
+   2. Dynamic GitHub Release Fetcher & Auto-Translating Release Notes
    ========================================================================== */
 const GITHUB_REPO = 'ScreamAngel/gow3_launcher';
 const API_URL = `https://api.github.com/repos/${GITHUB_REPO}/releases/latest`;
 const FALLBACK_DOWNLOAD_URL = `https://github.com/${GITHUB_REPO}/releases/latest/download/gow3-windows-linux.zip`;
-const FALLBACK_VERSION = 'v1.3';
+const FALLBACK_VERSION = 'v1.5';
+
+const precompiledReleaseNotes = {
+    'v1.5': {
+        tr: `Attention! Windows version can run only God Of War III Remastered 01.02
+Linux version can run 01.00 and 01.02
+
+Kurulum Kılavuzu:
+Zip dosyasını bir klasöre çıkartın.
+Ardından klasör içindeki "gow3-launcher" dosyasını kullanarak oyunu başlatabilirsiniz.
+Bu başlatıcı, işlemleri sizin için kolaylaştırmak amacıyla sade ve kullanıcı dostu olarak tasarlanmıştır.
+Sisteminize göre ayar dosyalarını otomatik olarak yapılandırır, oyunun kurulum dizinini tespit eder ve tek tıkla yama uygulamanıza olanak tanır.
+Herhangi bir sorun oluşursa, incelemek için doğrudan başlatıcı üzerinden log dosyalarına erişebilirsiniz.
+Başlatıcı ayrıca mevcut güncellemeleri otomatik olarak kontrol eder. İyi oyunlar!
+Windows desteği mevcuttur.
+
+Yeni Güncelleme Notu:
+- Oyun optimizasyonunda kapsamlı iyileştirmeler yapıldı.
+- Oyun motorunun yüksek FPS'de çok hızlı çalışması sorunu tamamen giderildi.
+- Artık oyunda herhangi bir hızlanma veya takılma sorunu yaşamadan akıcı ve yüksek FPS değerlerine ulaşabilirsiniz.`,
+
+        en: `Attention! Windows version can run only God Of War III Remastered 01.02
+Linux version can run 01.00 and 01.02
+
+Setup Guide:
+Extract the zip file into a folder.
+You can then launch the game using the "gow3-launcher" file found inside.
+This launcher has been designed to be simple and user-friendly, making things easier for you.
+It automatically configures the settings files based on your system, detects the game's installation location, and allows you to apply patches. Once you have finished the setup, you can start playing.
+If any issues arise, you can access the log files directly through the launcher to investigate.
+The launcher also checks for any available updates. Enjoy the game!
+Windows support is available.
+
+New Update Note:
+- Improvements have been made to game optimization.
+- The issue of the game engine running too fast at high FPS has been fixed.
+- You can now achieve high FPS without experiencing any speed-up or physics issues in the game.`,
+
+        de: `Achtung! Die Windows-Version kann nur God Of War III Remastered 01.02 ausführen
+Die Linux-Version kann 01.00 und 01.02 ausführen
+
+Installationsanleitung:
+Entpacken Sie die ZIP-Datei in einen Ordner.
+Anschließend können Sie das Spiel mit der darin enthaltenen Datei "gow3-launcher" starten.
+Dieser Launcher wurde einfach und benutzerfreundlich gestaltet, um Ihnen die Bedienung zu erleichtern.
+Er konfiguriert die Einstellungsdateien automatisch passend zu Ihrem System, erkennt den Installationsort des Spiels und ermöglicht das Anwenden von Patches. Nach Abschluss der Einrichtung können Sie sofort mit dem Spielen beginnen.
+Sollten Probleme auftreten, können Sie Fehlerprotokolle (Logs) direkt über den Launcher einsehen.
+Der Launcher prüft beim Start automatisch auf verfügbare Updates. Viel Spaß beim Spielen!
+Windows-Unterstützung ist verfügbar.
+
+Neuer Update-Hinweis:
+- Umfassende Verbesserungen an der Spieloptimierung vorgenommen.
+- Das Problem, bei dem die Spiel-Engine bei hohen FPS-Werten zu schnell lief, wurde behoben.
+- Sie können nun hohe FPS erreichen, ohne Probleme im Spiel zu erleben.`,
+
+        es: `¡Atención! La versión para Windows solo puede ejecutar God Of War III Remastered 01.02
+La versión para Linux puede ejecutar 01.00 y 01.02
+
+Guía de Instalación:
+Extrae el archivo zip en una carpeta.
+Luego puedes iniciar el juego usando el archivo "gow3-launcher" que se encuentra dentro.
+Este lanzador ha sido diseñado para ser simple y fácil de usar, facilitándote las cosas.
+Configura automáticamente los archivos de ajustes según tu sistema, detecta la ubicación de instalación del juego y te permite aplicar parches. Una vez finalizada la configuración, puedes comenzar a jugar.
+Si surge algún problema, puedes acceder a los archivos de registro (logs) directamente a través del lanzador para investigar.
+El lanzador también busca actualizaciones disponibles. ¡Disfruta del juego!
+El soporte para Windows está disponible.
+
+Nota de la Nueva Actualización:
+- Se han realizado mejoras en la optimización del juego.
+- Se ha solucionado el problema por el cual el motor del juego se ejecutaba demasiado rápido a altos FPS.
+- Ahora puedes alcanzar altos FPS sin experimentar ningún problema en el juego.`
+    }
+};
+
+let currentChangelogLang = 'tr';
+
+function formatInline(str) {
+    if (!str) return '';
+    return str
+        .replace(/`([^`]+)`/g, '<code>$1</code>')
+        .replace(/"(gow3-launcher[^"]*)"/g, '<code>$1</code>')
+        .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+}
+
+function postProcessGlossary(text, lang) {
+    if (!text) return text;
+    let res = text;
+    if (lang === 'tr') {
+        res = res
+            .replace(/Buhar Güvertesi(nde|ne|nin|le|den)?/gi, 'Steam Deck$1')
+            .replace(/Buhar Destesi(nde|ne|nin|le|den)?/gi, 'Steam Deck$1')
+            .replace(/Savaş Tanrısı/gi, 'God of War')
+            .replace(/Pencereler/gi, 'Windows');
+    }
+    res = res
+        .replace(/"\s*gow3\s*-\s*launcher\s*"/gi, '"gow3-launcher"')
+        .replace(/\bgow3\s*-\s*launcher\b/gi, 'gow3-launcher')
+        .replace(/\bgow3\s*-\s*launcher\s*-\s*win\.exe\b/gi, 'gow3-launcher-win.exe');
+    return res;
+}
+
+function renderReleaseNotesHtml(text, lang) {
+    if (!text) return '';
+    const lines = text.split(/\r?\n/).map(l => l.trim()).filter(l => l.length > 0);
+    const html = [];
+
+    const alertRegex = /^(attention|dikkat|achtung|¡?atenci[oó]n|warning|uyarı|warnung|aviso)[!:]/i;
+    const bulletRegex = /^[-*•+]\s+(.+)$/;
+    const numBulletRegex = /^\d+[\.)]\s+(.+)$/;
+    const headingPrefixRegex = /^#{1,4}\s+(.+)$/;
+    const namedHeadingRegex = /^(setup guide|kurulum k[ıi]lavuzu|installationsanleitung|gu[íi]a de instalaci[oó]n|new update note|yeni g[üu]ncelleme notu|neuer update-hinweis|nota de la nueva actualizaci[oó]n|changelog|yenilikler|what\'?s new|highlighted changes|öne çıkan değişiklikler)[:\s]*(.*)$/i;
+
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+
+        // 1. Alert lines
+        if (alertRegex.test(line)) {
+            html.push(`<div class="changelog-alert"><i class="fa-solid fa-triangle-exclamation"></i> <span>${formatInline(line)}</span></div>`);
+            continue;
+        }
+
+        // 2. Follow-up alert line (e.g. Linux version can run...)
+        if (i > 0 && alertRegex.test(lines[i - 1]) && !line.endsWith(':')) {
+            html.push(`<div class="changelog-alert info-alert" style="margin-top: -6px;"><i class="fa-solid fa-circle-info"></i> <span>${formatInline(line)}</span></div>`);
+            continue;
+        }
+
+        // 3. Named heading with possible trailing text
+        const namedMatch = line.match(namedHeadingRegex);
+        if (namedMatch) {
+            const headingTitle = namedMatch[1].replace(/:$/, '').trim();
+            const isGuide = /guide|kılavuz|anleitung|guía/i.test(headingTitle);
+            const icon = isGuide ? 'fa-book-open' : 'fa-bolt';
+            html.push(`<h4 class="changelog-subheading"><i class="fa-solid ${icon}"></i> ${formatInline(headingTitle)}:</h4>`);
+
+            const tail = namedMatch[2].trim();
+            if (tail) {
+                const sentences = tail.split(/(?<=[.!?])\s+/).map(s => s.trim()).filter(Boolean);
+                sentences.forEach(s => {
+                    html.push(`<p class="changelog-line"><i class="fa-solid fa-check"></i> <span>${formatInline(s)}</span></p>`);
+                });
+            }
+            continue;
+        }
+
+        // 4. Markdown heading (e.g. ## Notes)
+        if (headingPrefixRegex.test(line)) {
+            const hText = line.replace(/^#{1,4}\s+/, '');
+            html.push(`<h4 class="changelog-subheading"><i class="fa-solid fa-bolt"></i> ${formatInline(hText)}</h4>`);
+            continue;
+        }
+
+        // 5. Generic line ending with colon (short heading)
+        if (line.endsWith(':') && line.length < 60) {
+            html.push(`<h4 class="changelog-subheading"><i class="fa-solid fa-bolt"></i> ${formatInline(line)}</h4>`);
+            continue;
+        }
+
+        // 6. Bullet line
+        const bulletMatch = line.match(bulletRegex);
+        if (bulletMatch) {
+            html.push(`<p class="changelog-line"><i class="fa-solid fa-check"></i> <span>${formatInline(bulletMatch[1])}</span></p>`);
+            continue;
+        }
+
+        const numMatch = line.match(numBulletRegex);
+        if (numMatch) {
+            html.push(`<p class="changelog-line"><i class="fa-solid fa-check"></i> <span>${formatInline(numMatch[1])}</span></p>`);
+            continue;
+        }
+
+        // 7. Regular paragraph
+        html.push(`<p class="changelog-text">${formatInline(line)}</p>`);
+    }
+
+    return html.join('\n');
+}
+
+async function translateTextSegment(text, targetLang) {
+    if (!text || text.trim().length === 0) return text;
+    const cleanText = text.trim();
+
+    const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(cleanText)}&langpair=autodetect|${targetLang}`;
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 7000);
+
+    try {
+        const res = await fetch(url, { signal: controller.signal });
+        clearTimeout(timeoutId);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+
+        if (data && data.responseData && data.responseData.translatedText) {
+            if (data.responseStatus === 200) {
+                return postProcessGlossary(data.responseData.translatedText, targetLang);
+            }
+            if (data.responseDetails && data.responseDetails.includes('TWO DISTINCT LANGUAGES')) {
+                return cleanText;
+            }
+        }
+        return cleanText;
+    } catch (e) {
+        clearTimeout(timeoutId);
+        console.warn('Translation segment error or timeout:', e);
+        return cleanText;
+    }
+}
+
+async function translateReleaseBody(bodyText, targetLang) {
+    if (!bodyText) return '';
+    const paragraphs = bodyText.split(/\r?\n\r?\n+/).map(p => p.trim()).filter(Boolean);
+
+    const translatedParagraphs = await Promise.all(
+        paragraphs.map(p => translateTextSegment(p, targetLang))
+    );
+
+    return translatedParagraphs.join('\n\n');
+}
+
+async function updateChangelogUI(lang) {
+    const container = document.getElementById('changelogContent');
+    if (!container) return;
+
+    currentChangelogLang = lang;
+    const tagName = latestReleaseData?.tag_name || FALLBACK_VERSION;
+    const cacheKey = `gow3_notes_${tagName}_${lang}`;
+
+    // 1. Precompiled quality notes for known releases
+    if (precompiledReleaseNotes[tagName] && precompiledReleaseNotes[tagName][lang]) {
+        container.innerHTML = renderReleaseNotesHtml(precompiledReleaseNotes[tagName][lang], lang);
+        return;
+    }
+
+    // 2. Check localStorage cache
+    try {
+        const cached = localStorage.getItem(cacheKey);
+        if (cached) {
+            container.innerHTML = renderReleaseNotesHtml(cached, lang);
+            return;
+        }
+    } catch (e) {
+        console.warn('localStorage read error:', e);
+    }
+
+    // 3. Dynamic translation from latest release body
+    const rawBody = latestReleaseData?.body;
+    if (!rawBody) {
+        if (precompiledReleaseNotes[FALLBACK_VERSION] && precompiledReleaseNotes[FALLBACK_VERSION][lang]) {
+            container.innerHTML = renderReleaseNotesHtml(precompiledReleaseNotes[FALLBACK_VERSION][lang], lang);
+        }
+        return;
+    }
+
+    // Loading indicator
+    const loadingLabels = {
+        tr: 'Güncel sürüm notları çekiliyor ve çevriliyor...',
+        en: 'Fetching and translating latest release notes...',
+        de: 'Aktuelle Versionshinweise werden abgerufen und übersetzt...',
+        es: 'Obteniendo y traduciendo las últimas notas de versión...'
+    };
+
+    container.innerHTML = `
+        <div class="changelog-loading">
+            <i class="fa-solid fa-spinner fa-spin"></i>
+            <span>${loadingLabels[lang] || loadingLabels.en}</span>
+        </div>
+    `;
+
+    try {
+        const translated = await translateReleaseBody(rawBody, lang);
+        if (currentChangelogLang !== lang) return;
+
+        try {
+            localStorage.setItem(cacheKey, translated);
+        } catch (e) {
+            console.warn('localStorage write error:', e);
+        }
+
+        container.innerHTML = renderReleaseNotesHtml(translated, lang);
+    } catch (err) {
+        console.error('Dynamic translation failed:', err);
+        if (currentChangelogLang === lang) {
+            container.innerHTML = renderReleaseNotesHtml(rawBody, lang);
+        }
+    }
+}
 
 async function initGitHubRelease() {
     const downloadBtn = document.getElementById('downloadBtn');
@@ -434,6 +695,7 @@ async function initGitHubRelease() {
         }
 
         updateReleaseDateUI(data);
+        updateChangelogUI(currentLang);
 
     } catch (err) {
         console.warn('GitHub API fetch failed or rate limited, using fallback release info:', err);
@@ -452,6 +714,7 @@ async function initGitHubRelease() {
         if (releaseSizeText && releaseSizeText.textContent === '...') {
             releaseSizeText.textContent = '~84 MB';
         }
+        updateChangelogUI(currentLang);
     }
 }
 

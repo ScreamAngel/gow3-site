@@ -45,7 +45,7 @@
     <link rel="icon" type="image/png" href="gow3.png">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="gow3.css?v=1.7">
+    <link rel="stylesheet" href="gow3.css?v=1.8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -150,7 +150,7 @@
                 <!-- Status & Compatibility Badges -->
                 <div class="badges-row">
                     <span class="badge badge-version" id="versionBadge">
-                        <i class="fa-solid fa-code-branch"></i> <span id="versionTagText">v1.3</span> <span id="versionSuffixText" data-i18n="badge_version_suffix">Yayında</span>
+                        <i class="fa-solid fa-code-branch"></i> <span id="versionTagText">v1.5</span> <span id="versionSuffixText" data-i18n="badge_version_suffix">Yayında</span>
                     </span>
                     <span class="badge">
                         <i class="fa-brands fa-windows"></i> <span data-i18n="badge_win">Windows 01.02</span>
@@ -171,7 +171,7 @@
                     <a href="https://github.com/ScreamAngel/gow3_launcher/releases/latest/download/gow3-windows-linux.zip"
                        id="downloadBtn" class="btn btn-primary" title="Son sürümü hemen indirin">
                         <i class="fa-solid fa-download"></i>
-                        <span class="btn-text"><span id="btnDownloadPrefix" data-i18n="btn_download">Hemen İndir</span> (<span id="releaseVersion">v1.3</span>)</span>
+                        <span class="btn-text"><span id="btnDownloadPrefix" data-i18n="btn_download">Hemen İndir</span> (<span id="releaseVersion">v1.5</span>)</span>
                     </a>
 
                     <a href="https://github.com/ScreamAngel/gow3_launcher" target="_blank" rel="noopener noreferrer"
@@ -184,8 +184,8 @@
                 <div class="download-meta">
                     <i class="fa-solid fa-file-zipper"></i>
                     <span id="downloadFileName">gow3-windows-linux.zip</span> • 
-                    <span id="releaseSize">~84 MB</span> • 
-                    <span id="releaseDate">23 Ekim 2026</span>
+                    <span id="releaseSize">84.1 MB</span> • 
+                    <span id="releaseDate">28 Ekim 2026</span>
                 </div>
             </div>
         </section>
@@ -346,22 +346,34 @@
                     <div class="changelog-header">
                         <div class="changelog-title">
                             <i class="fa-solid fa-circle-check" style="color: var(--color-gold);"></i>
-                            <span><span data-i18n="change_version_label">Sürüm:</span> <strong id="changelogVersion" style="color: #fff;">v1.3</strong></span>
+                            <span><span data-i18n="change_version_label">Sürüm:</span> <strong id="changelogVersion" style="color: #fff;">v1.5</strong></span>
                         </div>
                         <span class="badge"><i class="fa-solid fa-clock"></i> <span data-i18n="change_badge">En Son Güncelleme</span></span>
                     </div>
 
                     <div class="changelog-body" id="changelogContent">
                         <div class="changelog-alert">
-                            <i class="fa-solid fa-triangle-exclamation"></i> <span data-i18n="change_alert">Dikkat: Windows sürümü God Of War III Remastered 01.02, Linux sürümü 01.00 ve 01.02 desteklemektedir.</span>
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <span>Dikkat! Windows sürümü yalnızca God Of War III Remastered 01.02'yi çalıştırabilir.</span>
+                        </div>
+                        <div class="changelog-alert info-alert" style="margin-top: -6px;">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <span>Linux sürümü 01.00 ve 01.02 sürümlerini çalıştırabilir.</span>
                         </div>
 
-                        <h4 class="changelog-subheading" data-i18n="change_sub">Öne Çıkan Değişiklikler:</h4>
-                        <p class="changelog-line"><i class="fa-solid fa-check"></i> <span data-i18n="change_line1">Windows tarafındaki güncelleme sorunu giderildi.</span></p>
-                        <p class="changelog-line"><i class="fa-solid fa-check"></i> <span data-i18n="change_line2">Sağ analog çubuğu eşleme (mapping) hatası düzeltildi.</span></p>
-                        <p class="changelog-line"><i class="fa-solid fa-check"></i> <span data-i18n="change_line3">Buton atamalarına özel simgeler ve şekiller eklendi.</span></p>
-                        <p class="changelog-line"><i class="fa-solid fa-check"></i> <span data-i18n="change_line4">Kullanıcı arayüzünde performans ve kararlılık geliştirmeleri yapıldı.</span></p>
-                        <p class="changelog-line"><i class="fa-solid fa-check"></i> <span data-i18n="change_line5">Windows desteği stabil hale getirildi ve tespit edilen hatalar giderildi.</span></p>
+                        <h4 class="changelog-subheading"><i class="fa-solid fa-book-open"></i> Kurulum Kılavuzu:</h4>
+                        <p class="changelog-text">İndirdiğiniz zip dosyasını bir klasöre çıkartın.</p>
+                        <p class="changelog-text">Ardından klasör içindeki <code>gow3-launcher</code> dosyasını kullanarak oyunu başlatabilirsiniz.</p>
+                        <p class="changelog-text">Bu başlatıcı, işlemleri sizin için kolaylaştırmak amacıyla sade ve kullanıcı dostu olarak tasarlanmıştır.</p>
+                        <p class="changelog-text">Sisteminize göre ayar dosyalarını otomatik olarak yapılandırır, oyunun kurulum dizinini tespit eder ve tek tıkla yama uygulamanıza olanak tanır.</p>
+                        <p class="changelog-text">Herhangi bir sorun oluşursa, incelemek için doğrudan başlatıcı üzerinden log dosyalarına erişebilirsiniz.</p>
+                        <p class="changelog-text">Başlatıcı ayrıca mevcut güncellemeleri otomatik olarak kontrol eder. İyi oyunlar!</p>
+                        <p class="changelog-text">Windows desteği mevcuttur.</p>
+
+                        <h4 class="changelog-subheading"><i class="fa-solid fa-bolt"></i> Yeni Güncelleme Notu:</h4>
+                        <p class="changelog-line"><i class="fa-solid fa-check"></i> <span>Oyun optimizasyonunda kapsamlı iyileştirmeler yapıldı.</span></p>
+                        <p class="changelog-line"><i class="fa-solid fa-check"></i> <span>Oyun motorunun yüksek FPS'de çok hızlı çalışması sorunu tamamen giderildi.</span></p>
+                        <p class="changelog-line"><i class="fa-solid fa-check"></i> <span>Artık oyunda herhangi bir hızlanma veya takılma sorunu yaşamadan akıcı ve yüksek FPS değerlerine ulaşabilirsiniz.</span></p>
                     </div>
 
                     <div class="changelog-footer">
@@ -407,7 +419,7 @@
     </footer>
 
     <!-- Dynamic JavaScript -->
-    <script src="gow3.js?v=1.7"></script>
+    <script src="gow3.js?v=1.8"></script>
 </body>
 
 </html>
